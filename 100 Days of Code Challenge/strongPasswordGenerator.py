@@ -61,4 +61,5 @@ random.shuffle(password)
 # Make the list into one long word by joining the strings in each element without stating any seperator between the ''.
 password = ''.join(password)
 
+# Print the randomly generated and randomly shuffled strong password
 print(password)

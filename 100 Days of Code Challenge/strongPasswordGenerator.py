@@ -60,6 +60,13 @@ for everyElement in range(0,symbolsNeeded):
 random.shuffle(password)
 # Make the list into one long word by joining the strings in each element without stating any seperator between the ''.
 password = ''.join(password)
+# Istedenfor å kalle funksjonen over så kan også metoden under brukes
+# finalPassword = ""
+# for everyElement in password:
+#     finalPassword += everyElement
+
+
 
 # Print the randomly generated and randomly shuffled strong password
 print(password)
+#print(finalPassword)

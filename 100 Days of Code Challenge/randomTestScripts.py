@@ -227,3 +227,11 @@
 #         print("Buzz")
 #     else: print(list100[e])
 
+*guessed_letters, = []
+player_choice = input("Please guess a charackter: ").upper()
+guessed_letters.append(player_choice)
+print(type(guessed_letters))
+print(guessed_letters)
+player_choice = input("Please guess a charackter: ").upper()
+guessed_letters.append(player_choice)
+print(guessed_letters)

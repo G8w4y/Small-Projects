@@ -208,7 +208,12 @@ YAY!         |
         while correct_input == False:
             player_guess = input("Please guess single a charackter: ").upper()
             if len(player_guess) == 1:
-                correct_input = True
+                try:
+                    if int(player_guess) in range(0,9):
+                        continue
+                except ValueError:
+                    correct_input = True
+                
 
         guessed_letters.append(player_guess)
 

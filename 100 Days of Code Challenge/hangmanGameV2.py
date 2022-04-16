@@ -149,6 +149,7 @@ YAY!         |
         wordsList = edibles
     elif category_choice == categories_list[8]:
         wordsList = categories_list[random.randint(0,7)]
+
     
     # Print the category chosen by user for them to see
     print(f"You have chosen {category_printed} as your category!")
@@ -171,29 +172,7 @@ YAY!         |
     #print(hidden_word)
     #print(goal_word)
 
-
     print(f"{' '.join(hidden_word)} <-- The word to guess has {len(hidden_word)} letters\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

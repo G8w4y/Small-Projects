@@ -244,3 +244,9 @@
 # #Eventuelt også
 # if "_" not in myList:
 #     print("Didn't find it in the list!")
+
+
+########### Hvordan fjerne/rydde terminalen vha. funksjon i koden din #########
+# import os
+# clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
+# clear()#####

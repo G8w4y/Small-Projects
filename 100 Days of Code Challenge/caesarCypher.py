@@ -11,28 +11,29 @@ def caesar(option,text,shiftAmount):
     text_to_process = list(str(text).lower())
     length_of_text = len(text)
 
+    #Brukte modulus her til å gjøre det samme som alle disse elif påstandene
     if shift > alphabetLength:
-        shift -= alphabetLength
-    elif shift > (alphabetLength*2):
-        shift -= (alphabetLength*2)
-    elif shift > (alphabetLength*3):
-        shift -= (alphabetLength*3)
-    elif shift > (alphabetLength*4):
-        shift -= (alphabetLength*4)
-    elif shift > (alphabetLength*5):
-        shift -= (alphabetLength*5)
-    elif shift > (alphabetLength*6):
-        shift -= (alphabetLength*6)
-    elif shift > (alphabetLength*7):
-        shift -= (alphabetLength*7)
-    elif shift > (alphabetLength*8):
-        shift -= (alphabetLength*8)
-    elif shift > (alphabetLength*9):
-        shift -= (alphabetLength*9)
-    elif shift > (alphabetLength*10):
-        shift -= (alphabetLength*10)
-    elif shift > (alphabetLength*11):
-        shift -= (alphabetLength*11)
+        shift %= alphabetLength
+    # elif shift > (alphabetLength*2):
+    #     shift -= (alphabetLength*2)
+    # elif shift > (alphabetLength*3):
+    #     shift -= (alphabetLength*3)
+    # elif shift > (alphabetLength*4):
+    #     shift -= (alphabetLength*4)
+    # elif shift > (alphabetLength*5):
+    #     shift -= (alphabetLength*5)
+    # elif shift > (alphabetLength*6):
+    #     shift -= (alphabetLength*6)
+    # elif shift > (alphabetLength*7):
+    #     shift -= (alphabetLength*7)
+    # elif shift > (alphabetLength*8):
+    #     shift -= (alphabetLength*8)
+    # elif shift > (alphabetLength*9):
+    #     shift -= (alphabetLength*9)
+    # elif shift > (alphabetLength*10):
+    #     shift -= (alphabetLength*10)
+    # elif shift > (alphabetLength*11):
+    #     shift -= (alphabetLength*11)
 
 
     if option == "-e":
@@ -77,7 +78,7 @@ while keep_going:
 
 
 
-######## Tidligere CaesarCypherCode hvor mye var repetert ##############
+######## Tidligere CaesarCypherCode hvor mye code var gjenbrukt og lite effektivt ##############
 
 # def encrypt():
 #     #from collections import deque

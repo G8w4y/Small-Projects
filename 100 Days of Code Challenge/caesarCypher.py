@@ -1,11 +1,39 @@
 def caesar(option,text,shiftAmount):
+    import string
     alphabet = "abcdefghijklmnopqrstuvwxyzæøå"
+    alphabetLength = len(alphabet)
+    numbersList = str([0,1,2,3,4,5,6,7,8,9])
+    *symbolsList, = list(string.punctuation)
     alphabetList = list(alphabet)
     shift = int(shiftAmount)
     letterCount = 0
     processed_text = []
     text_to_process = list(str(text).lower())
     length_of_text = len(text)
+
+    if shift > alphabetLength:
+        shift -= alphabetLength
+    elif shift > (alphabetLength*2):
+        shift -= (alphabetLength*2)
+    elif shift > (alphabetLength*3):
+        shift -= (alphabetLength*3)
+    elif shift > (alphabetLength*4):
+        shift -= (alphabetLength*4)
+    elif shift > (alphabetLength*5):
+        shift -= (alphabetLength*5)
+    elif shift > (alphabetLength*6):
+        shift -= (alphabetLength*6)
+    elif shift > (alphabetLength*7):
+        shift -= (alphabetLength*7)
+    elif shift > (alphabetLength*8):
+        shift -= (alphabetLength*8)
+    elif shift > (alphabetLength*9):
+        shift -= (alphabetLength*9)
+    elif shift > (alphabetLength*10):
+        shift -= (alphabetLength*10)
+    elif shift > (alphabetLength*11):
+        shift -= (alphabetLength*11)
+
 
     if option == "-e":
         alphabetList_shifted = alphabetList[shift:] + alphabetList[:shift]
@@ -20,16 +48,24 @@ def caesar(option,text,shiftAmount):
             elif text[letterCount] == " ":
                 processed_text += " "
                 letterCount += 1
+            elif text[letterCount] in numbersList:
+                processed_text += text[letterCount]
+                letterCount += 1
+            elif text[letterCount] in symbolsList:
+                processed_text += text[letterCount]
+                letterCount += 1
             elif alphabetList[everyletter] == text_to_process[letterCount]:
                 processed_text += alphabetList_shifted[everyletter]
                 letterCount += 1
     print(''.join(processed_text))
 
+########## Main ##############
+
+from caesart import logo
 keep_going = True
-
+print(logo)
 while keep_going:
-
-    not_quit = input("Press 1 to continue encrypting/decrypting and 0 (zero) to quit.\n").lower()
+    not_quit = input("\nPress 1 to Encrypt/Decrypt and 0 (zero) to quit.\n").lower()
     if "0" in not_quit:
         keep_going = False
     elif "1" in not_quit:

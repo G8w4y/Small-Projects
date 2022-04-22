@@ -244,3 +244,31 @@
 # #Eventuelt også
 # if "_" not in myList:
 #     print("Didn't find it in the list!")
+
+######## Legge til dictionaries til en liste med dictionaries #########
+# travel_log = [
+# {
+#   "country": "France",
+#   "visits": 12,
+#   "cities": ["Paris", "Lille", "Dijon"]
+# },
+# {
+#   "country": "Germany",
+#   "visits": 5,
+#   "cities": ["Berlin", "Hamburg", "Stuttgart"]
+# },
+# ]
+# #🚨 Do NOT change the code above
+
+# #TODO: Write the function that will allow new countries
+# #to be added to the travel_log. 👇
+# def add_new_country(log_country,log_visits,log_cities):
+#     new_entry = {}
+#     new_entry["country"] = log_country
+#     new_entry["visits"] = log_visits
+#     new_entry["cities"] = log_cities
+#     travel_log.append(new_entry)
+
+# #🚨 Do not change the code below
+# add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+# print(travel_log)

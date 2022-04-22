@@ -272,3 +272,8 @@
 # #🚨 Do not change the code below
 # add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
 # print(travel_log)
+
+########### Hvordan fjerne/rydde terminalen vha. funksjon i koden din #########
+# import os
+# clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
+# clear()#####

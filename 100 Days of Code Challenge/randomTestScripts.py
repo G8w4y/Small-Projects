@@ -245,7 +245,6 @@
 # if "_" not in myList:
 #     print("Didn't find it in the list!")
 
-<<<<<<< HEAD
 ######## Legge til dictionaries til en liste med dictionaries #########
 # travel_log = [
 # {
@@ -273,10 +272,3 @@
 # #🚨 Do not change the code below
 # add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
 # print(travel_log)
-=======
-
-########### Hvordan fjerne/rydde terminalen vha. funksjon i koden din #########
-# import os
-# clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
-# clear()#####
->>>>>>> 46db6c86aa51ae2bac4f6e8b0999e14e4f09d8c3

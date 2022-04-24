@@ -6,8 +6,6 @@ biddersAndBids = []
 #define function that adds new bidder to master list
 def add_bidder(name,bidValue):
     clear()
-    bidder = []
-    bids = []
     newBidderWithBid = {}
     newBidderWithBid["Bidder"] = str(name)
     newBidderWithBid["Bid"] = int(bidValue)
@@ -22,8 +20,8 @@ not_exit = True
 
 while not_exit:
 
-    name = input(f"input your name: ")
-    bidValue = input(f"how much would you like to bid?")
+    name = input(f"What is your name?:\n")
+    bidValue = input(f"how much would you like to bid in NOK?:\n")
     add_bidder(name,bidValue)
     not_finished = input("Type yes to add another bidder, and no to show the end results.\n").lower()
     if "y" in not_finished or "ye" in not_finished or "yes" in not_finished:

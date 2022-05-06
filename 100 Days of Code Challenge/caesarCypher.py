@@ -1,3 +1,5 @@
+import ASCIIArt
+
 def caesar(option,text,shiftAmount):
     import string
     alphabet = "abcdefghijklmnopqrstuvwxyzæøå"
@@ -62,9 +64,8 @@ def caesar(option,text,shiftAmount):
 
 ########## Main ##############
 
-from caesart import logo
 keep_going = True
-print(logo)
+print(ASCIIArt.caesArt())
 while keep_going:
     not_quit = input("\nPress 1 to Encrypt/Decrypt and 0 (zero) to quit.\n").lower()
     if "0" in not_quit:

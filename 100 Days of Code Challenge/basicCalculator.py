@@ -1,5 +1,5 @@
-import ASCIIArt
 import sys
+import ASCIIArt
 
 def add(a, b):
     return int(a) + int(b)

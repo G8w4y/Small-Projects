@@ -4,5 +4,3 @@ second_digit = int(two_digit_number[1])
 
 #print(type(first_digit))
 print(first_digit+second_digit)
-
-#print("Sverre"[2])

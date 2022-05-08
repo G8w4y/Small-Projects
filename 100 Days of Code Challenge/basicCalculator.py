@@ -5,7 +5,6 @@
 
 import sys
 import ASCIIArt
-import math
 
 # Define the functions that will define the calculators capabilitites
 def add(a, b):

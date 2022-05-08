@@ -85,7 +85,7 @@ while keep_calculating:
         sys.exit()
     # Always making sure that the user types inn valid inputs, looping back and prompting the user again if not.
     while operatorValid(operator) != True:
-        operator = input("Please choose a valid operator:\n+\n-\n*\n/")
+        operator = input("Please choose a valid operator:\n+\n-\n*\n/\n")
         continue
     
     second_number = str(input("Please choose your second number:\n"))
@@ -102,11 +102,11 @@ while keep_calculating:
         print(f"{calculation_results}")
         starting_number = calculation_results
         
-        operator = input("Please choose a valid operator:\n+\n-\n*\n/")
+        operator = input("Please choose a valid operator:\n+\n-\n*\n/\n")
         if operator == "-e":
             sys.exit()
         while operatorValid(operator) != True:
-            operator = input("Please choose a valid operator:\n+\n-\n*\n/")
+            operator = input("Please choose a valid operator:\n+\n-\n*\n/\n")
             continue
         
         second_number = str(input("Please choose your second number:\n"))

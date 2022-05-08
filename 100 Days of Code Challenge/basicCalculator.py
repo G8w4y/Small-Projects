@@ -5,19 +5,20 @@
 
 import sys
 import ASCIIArt
+import math
 
 # Define the functions that will define the calculators capabilitites
 def add(a, b):
-    return int(a) + int(b)
+    return format(float(a) + float(b), '.2f')
 
 def subtract(a,b):
-    return int(a) - int(b)
+    return format(float(a) - float(b), '.2f')
 
 def multiply(a, b):
-    return int(a) * int(b)
+    return format(float(a) * float(b), '.2f')
 
 def divide(a, b):
-    return int(a) / int(b)
+    return format(float(a) / float(b), '.2f')
 
 def calculation(starting_number, operator, second_number):
     '''Takes inputs as string. First number, operator +, -, *, / and second number'''
@@ -58,6 +59,8 @@ def operatorValid(operator):
     if len(operator) == 1:
         try:
             if type(int(operator)) == int:
+                return False
+            elif type(float(operator)) == float:
                 return False
         except:
             if operator == "+":

@@ -88,13 +88,13 @@ while keep_calculating:
         operator = input("Please choose a valid operator:\n+\n-\n*\n/\n")
         continue
     
-    second_number = str(input("Please choose your second number:\n"))
+    second_number = str(input("Please choose your next number:\n"))
     if second_number == "-e":
         sys.exit()
     calculation_results = calculation(starting_number, operator, second_number)
 
     # Keep running a second calculation on the previus result, as long as the user wants.
-    another_calculation = input("Would you like to keep calculating with this number?\npress 'y' for yes, and 'n' for no or -e to exit: ").lower()
+    another_calculation = input(f"Would you like to keep calculating with {calculation_results}?\npress 'y' for yes, and 'n' for no: ").lower()
     if another_calculation == "-e":
         sys.exit()
 
@@ -109,12 +109,11 @@ while keep_calculating:
             operator = input("Please choose a valid operator:\n+\n-\n*\n/\n")
             continue
         
-        second_number = str(input("Please choose your second number:\n"))
+        second_number = str(input("Please choose your next number:\n"))
         if second_number == "-e":
             sys.exit()
         
         calculation_results = calculation(starting_number, operator, second_number)
-        another_calculation = input("Would you like to keep calculating with this number?\npress 'y' for yes, and 'n' for no: ").lower()
+        another_calculation = input(f"Would you like to keep calculating with {calculation_results}?\npress 'y' for yes, and 'n' for no: ").lower()
         if another_calculation == "-e":
             sys.exit()
-    

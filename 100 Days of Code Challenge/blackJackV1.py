@@ -27,14 +27,15 @@ def game_start():
     hit(player_hand)
     hit(bot_hand)
     hit(player_hand)
+    hit(bot_hand)
 
 def play_again():
     another_go = input(f"Would you like to play again?\nType 'y' to go again or 'n' to exit.").lower
-    try:
-        if another_go == "y":
-            restart_game = True
-        elif another_go == "n":
-            sys.exit()
+    if another_go == "y":
+        restart_game = True
+        return restart_game
+    elif another_go == "n":
+        sys.exit()
 
 keep_playing = True
 while keep_playing:
@@ -43,4 +44,14 @@ while keep_playing:
     if new_game == "y":
         game_start()
     else: sys.exit()
+
+
+
+
+
+
+    if play_again == True:
+        continue
+
+
 

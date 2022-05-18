@@ -62,19 +62,32 @@ def player_hit_or_stand(player_hand):
                 continue
 
 def house_logic():
+    if check_bust("house_hand") == True:
+        stand = True
+        return stand
     if sum(house_hand) == 21 and 11 in house_hand and len(house_hand) == 2:
         stand = True
         natural = True
         return stand,natural
     
-    #elif 
+    elif sum(house_hand) >= 17 and sum(house_hand) < 21:
+        stand = True
+        return stand
+    
+    elif sum(house_hand) < 17:
+        hit("house_hand")
+    
+    else:
+        stand = True
+        return stand
 
 def check_bust(which_hand):
     if which_hand == "player_hand":
         if sum(player_hand) > 21 and 11 in player_hand:
             player_hand[player_hand.index(11)] = 1
             print(f"Your ace (11) got turned into a 1 so you wouldn't go bust.")
-            return False
+            player_bust = False
+            return player_bust
 
         elif sum(player_hand) > 21 and 11 not in player_hand:
             print(f"Oh, no. You wen't bust! With a total hand score of {sum(player_hand)}.\nLet's see if the house fares any better?")
@@ -87,10 +100,16 @@ def check_bust(which_hand):
     if which_hand == "house_hand":
         if sum(house_hand) > 21 and 11 in house_hand:
             house_hand[house_hand.index(11)] = 1
+            house_bust = False
+            return house_bust
         
         if sum(house_hand) > 21 and 11 not in house_hand:
             print(f"The House wen't bust! With a total hand score of {sum(player_hand)}.\n")
             house_bust = True
+            return house_bust
+        
+        else:
+            house_bust = False
             return house_bust
 
 ########### Main ############
@@ -110,6 +129,16 @@ while keep_playing:
     show_hands()
     # In blackjack the players are served first
     player_hit_or_stand(player_hand)
+
+    # Followed by the house (dealer), who must abide by some special rules.
+    stand = False
+    natural = False
+    while stand != True or natural != True:
+        if house_logic() == natural:
+            natural = house_logic()
+        elif house_logic() == stand:
+            stand = house_logic
+
 
 
 

@@ -49,7 +49,7 @@ def show_final_hands():
 
 def player_hit_or_stand(player_hand):
     # As long as the player hand is below 21, ask them to hit or stand
-    while sum(player_hand) < 21:
+    while check_bust("player_hand") == False:
         # Calls the show hands function that reveals the bot and the players hands.
         show_hands()
         player_went_bust = check_bust("player_hand")
@@ -93,7 +93,7 @@ def check_bust(which_hand):
             player_bust = False
             return player_bust
 
-        elif sum(player_hand) > 21 and 11 not in player_hand:
+        if sum(player_hand) > 21 and 11 not in player_hand:
             print(f"Oh, no. You wen't bust! With a total hand score of {sum(player_hand)}.\nLet's see if the house fares any better?")
             player_bust = True
             return player_bust
@@ -108,7 +108,7 @@ def check_bust(which_hand):
             return house_bust
         
         if sum(house_hand) > 21 and 11 not in house_hand:
-            print(f"The House wen't bust! With a total hand score of {sum(player_hand)}.\n")
+            print(f"The House wen't bust! With a total hand score of {sum(house_hand)}.\n")
             house_bust = True
             return house_bust
         
@@ -168,7 +168,7 @@ while keep_playing:
     for card in range(1, len(house_hand)):
         house_shown_hand.append(house_hidden_hand[card])
     
-    show_hands()
+    #show_hands() #Kommenterte ut denne for å teste
     # In blackjack the players are served first
     player_hit_or_stand(player_hand)
 

@@ -25,6 +25,7 @@ def hit(which_hand):
         #return bot_hand
 
 def game_start():
+    """Starts the game by dealing two shown cards to the player, and two cards to the house"""
     hit("player_hand")
     hit("house_hand")
     hit("player_hand")

@@ -1,5 +1,7 @@
 import random
 import sys
+import os
+clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
 player_hand = []
 house_hand = []
@@ -35,6 +37,7 @@ def play_again():
     another_go = input(f"Would you like to play again?\nType 'y' to go again or 'n' to exit.\n").lower()
     if another_go == "y":
         restart_game = True
+        clear()
         return restart_game
     elif another_go == "n":
         sys.exit()
@@ -143,6 +146,12 @@ def who_won():
     
     if check_bust('player_hand') == True and check_bust('house_hand') == True:
         print(f"It's a DRAW! Both parties went bust.")
+
+    if check_bust('player_hand') == False and check_bust('house_hand') == True:
+        print(f"The house went bust. You WON! With a hand consisting of {sum(player_hand)} points vs the Houses hand of {sum(house_hand)} points.")
+
+    if check_bust('player_hand') == True and check_bust('house_hand') == False:
+        print(f"You went bust. You LOSE! With a hand consisting of {sum(player_hand)} points vs the Houses hand of {sum(house_hand)} points.")
 
     if sum(house_hand) == sum(player_hand) and sum(house_hand) <= 21 and sum(player_hand) <= 21 and player_natural == False and house_natural == False:
         print(f"It's a DRAW! Both parties got {sum(player_hand)} points")

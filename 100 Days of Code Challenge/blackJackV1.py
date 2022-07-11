@@ -9,7 +9,7 @@ deck = [11,11,11,11,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,
 #print(type(deck[0]))
 #print(player_hand)
 def hit(which_hand):
-    "This function takes the player or the bot as the parameter and hits them with a new card from the deck. Removing that card from being drawn in the future."
+    "This function takes the player or the bot as the parameter and hits them with a new card from the deck. Removing that exact card from being drawn in the future."
     if which_hand == "player_hand":
         #print(deck)
         #print(player_hand)

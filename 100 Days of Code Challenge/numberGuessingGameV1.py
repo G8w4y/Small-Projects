@@ -63,7 +63,7 @@ def the_game():
         clear()
         print("Hello and welcome to the number guesssing game!\nI'm thinking of a number between 1 and 100.")
         number_to_guess = random_number()
-        print(f"Psst. The secret number is {number_to_guess}")
+        #print(f"Psst. The secret number is {number_to_guess}")
         life_counter = choose_difficulty(difficulty_chosen = input("What difficulty would you like to play at?\nType 'easy', 'medium' or 'hard':\n").lower())
         print(f"You have {life_counter} lives remaining")
         guessed_number = 0

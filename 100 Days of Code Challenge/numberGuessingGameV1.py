@@ -74,8 +74,19 @@ def the_game():
             if life_counter == 0:
                 print(f"You loose! \nThe number to guess was {number_to_guess}.")
                 break
+            
+            #Check to see if the guessed number is actually a whole number, and nothing else
+            while True:
+                try:
+                    guessed_number = int(input(f"Guess a number! "))
+                    break
+                except ValueError:
+                    print("Oops! You typed in something other than an integer.")
+                    continue
 
-            guessed_number = int(input(f"Guess a number! "))
+
+
+            
             if guessed_number != number_to_guess:
                 life_counter -= number_high_or_low(guessed_number,number_to_guess)
                 print(f"You have {life_counter} lives remaining!")

@@ -6,8 +6,7 @@ import os
 
 clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
-HIGHER_LOWER_LIST = []
-LIFE_COUNTER = int
+HIGHER_LOWER_LIST = ['none','none']
 
 def pick_random_data_entry_from_list():
     #print(data[random.randint(0,len(data) - 1)])
@@ -15,8 +14,8 @@ def pick_random_data_entry_from_list():
     return random_entry
 
 def pick_different_starter_entries():
-    HIGHER_LOWER_LIST.append(pick_random_data_entry_from_list())
-    HIGHER_LOWER_LIST.append(pick_random_data_entry_from_list())
+    HIGHER_LOWER_LIST[0] = pick_random_data_entry_from_list()
+    HIGHER_LOWER_LIST[1] = pick_random_data_entry_from_list()
     while HIGHER_LOWER_LIST[0] == HIGHER_LOWER_LIST[1]:
         HIGHER_LOWER_LIST[1] = pick_random_data_entry_from_list()
 
@@ -27,7 +26,7 @@ def display_values():
 
     print(vs)
     entry_b = HIGHER_LOWER_LIST[1]
-    print(f"Name: {entry_b['name']}\nDescription: {entry_b['description']} from {entry_b['country']}.\nFollower count: ???\nDoes {entry_b['name']} have a higher or Lower follower count than {entry_a['name']}?")
+    print(f"Name: {entry_b['name']}\nDescription: {entry_b['description']} from {entry_b['country']}.\nFollower count: ???\nDoes {entry_b['name']} have a higher(1) or Lower(2) follower count than {entry_a['name']}?")
     #print(type(entry_a))
 
 
@@ -46,9 +45,9 @@ def guess_and_check():
         number_to_guess = 0
         player_guess = 0
     elif HIGHER_LOWER_LIST[0]['follower_count'] > HIGHER_LOWER_LIST[1]['follower_count']:
-        number_to_guess = 1
-    elif HIGHER_LOWER_LIST[0]['follower_count'] < HIGHER_LOWER_LIST[1]['follower_count']:
         number_to_guess = 2
+    elif HIGHER_LOWER_LIST[0]['follower_count'] < HIGHER_LOWER_LIST[1]['follower_count']:
+        number_to_guess = 1
     
     if player_guess == number_to_guess:
         return True
@@ -75,10 +74,13 @@ def the_game():
     print("Welcome to the Higher/Lower game!")
     LIFE_COUNTER = 0
     pick_different_starter_entries()
+
     still_alive = True
     while still_alive:
         clear()
+        print(logo)
         display_values()
+        print(f"Score so far: {LIFE_COUNTER}")
         if guess_and_check() == True:
             swap_and_new_entry()
             LIFE_COUNTER += 1
@@ -87,8 +89,9 @@ def the_game():
             print(f"That's too bad. You got the wront guess! {HIGHER_LOWER_LIST[0]['name']} has {HIGHER_LOWER_LIST[0]['follower_count']} million followers,\nwhile {HIGHER_LOWER_LIST[1]['name']} has {HIGHER_LOWER_LIST[1]['follower_count']} million followers.\nFinal score is: {LIFE_COUNTER}")
             still_alive = False
     
-        play_again = input("Would you like to play again?").lower()
+        play_again = input("Would you like to play again? ").lower()
         if "y" in play_again:
+            pick_different_starter_entries()
             the_game()
         else: 
             break
@@ -108,4 +111,10 @@ def the_game():
 #entry_a = HIGHER_LOWER_LIST[0].get('name')
 #print(entry_a)
 #display_values()
-the_game()
+clear()
+#Create a welcome statement
+print(logo)
+print("Welcome to the Higher/Lower game!")
+ready_to_play = input("The game where you guess who has more or less followers on Instagram than the other! Type 'yes' if you wan't to play and 'no' to exit: ").lower()
+if "y" in ready_to_play:
+    the_game()

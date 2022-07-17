@@ -72,7 +72,7 @@ def the_game():
     #Create a welcome statement
     print(logo)
     print("Welcome to the Higher/Lower game!")
-    LIFE_COUNTER = 0
+    score_counter = 0
     pick_different_starter_entries()
 
     still_alive = True
@@ -80,10 +80,10 @@ def the_game():
         clear()
         print(logo)
         display_values()
-        print(f"Score so far: {LIFE_COUNTER}")
+        print(f"Score so far: {score_counter}")
         if guess_and_check() == True:
             swap_and_new_entry()
-            LIFE_COUNTER += 1
+            score_counter += 1
             continue
         else:
             print(f"That's too bad. You got the wront guess! {HIGHER_LOWER_LIST[0]['name']} has {HIGHER_LOWER_LIST[0]['follower_count']} million followers,\nwhile {HIGHER_LOWER_LIST[1]['name']} has {HIGHER_LOWER_LIST[1]['follower_count']} million followers.\nFinal score is: {LIFE_COUNTER}")

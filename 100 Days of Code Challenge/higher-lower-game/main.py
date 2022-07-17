@@ -10,7 +10,7 @@ HIGHER_LOWER_LIST = ['none','none']
 
 def pick_random_data_entry_from_list():
     #print(data[random.randint(0,len(data) - 1)])
-    random_entry = data[random.randint(0,len(data) - 1)]
+    random_entry = data[random.randint(0,len(data) - 1)] #Could also use random.choice(data) here
     return random_entry
 
 def pick_different_starter_entries():
@@ -53,6 +53,12 @@ def guess_and_check():
         return True
     else:
         return False
+
+    #All this can be written alot shorter like this:
+    # if HIGHER_LOWER_LIST[0]['follower_count'] > HIGHER_LOWER_LIST[1]['follower_count']:
+    #     return player_guess == 2
+    # else:
+    #     return player_guess == 1
 
     
     

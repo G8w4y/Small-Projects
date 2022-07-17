@@ -86,7 +86,7 @@ def the_game():
             score_counter += 1
             continue
         else:
-            print(f"That's too bad. You got the wront guess! {HIGHER_LOWER_LIST[0]['name']} has {HIGHER_LOWER_LIST[0]['follower_count']} million followers,\nwhile {HIGHER_LOWER_LIST[1]['name']} has {HIGHER_LOWER_LIST[1]['follower_count']} million followers.\nFinal score is: {LIFE_COUNTER}")
+            print(f"That's too bad. You got the wront guess! {HIGHER_LOWER_LIST[0]['name']} has {HIGHER_LOWER_LIST[0]['follower_count']} million followers,\nwhile {HIGHER_LOWER_LIST[1]['name']} has {HIGHER_LOWER_LIST[1]['follower_count']} million followers.\nFinal score is: {score_counter}")
             still_alive = False
     
         play_again = input("Would you like to play again? ").lower()

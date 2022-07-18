@@ -2,7 +2,7 @@ from msilib.schema import Error
 from data import MENU
 from data import resources
 from data import coffee
-import time
+from time import sleep
 # 3 different MENU, each with their unique amount of ingredients
 #print(MENU['espresso']['cost'])
 command = str
@@ -88,7 +88,7 @@ def process_order(order, payment):
             print(f"Refunding ${customer_payment}")
         update_resources(order)
         print(f"Creating {order}")
-        time.sleep(2)
+        sleep(2)
         print(coffee)
         print(f"Here is your {order}. Enjoy!")
     else:

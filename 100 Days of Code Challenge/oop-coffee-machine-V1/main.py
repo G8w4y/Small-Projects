@@ -11,7 +11,7 @@ is_on = True
 while is_on:
     order = input(f"What would you like to order? {menu.get_items()}")
     if order == "off":
-        is_on = False    
+        is_on = False
     elif order == "report":
         coffee_machine.report()
         transaction_handler.report()

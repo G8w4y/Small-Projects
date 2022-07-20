@@ -17,5 +17,5 @@ class QuizBrain():
         print(f"Score: {self.correct_guesses}/{self.question_number}")
 
     def check_answer(self, user_answer, correct_answer):
-        if user_answer == correct_answer:
+        if user_answer.lower() == correct_answer.lower():
             self.correct_guesses += 1

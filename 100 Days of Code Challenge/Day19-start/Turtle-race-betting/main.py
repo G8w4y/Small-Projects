@@ -1,5 +1,14 @@
 from turtle import Turtle, Screen
 
+
+def set_starting_positions():
+    for turtle in range(0, len(turtles_list)):
+        turtles_list[turtle].penup()
+        turtles_list[turtle].shape("turtle")
+        turtles_list[turtle].setposition(starting_positions[turtle]["x"], starting_positions[turtle]["y"])
+        turtles_list[turtle].color(colours_list[turtle])
+
+
 turtle1 = Turtle()
 turtle2 = Turtle()
 turtle3 = Turtle()
@@ -10,7 +19,7 @@ turtle7 = Turtle()
 screen = Screen()
 screen.setup(width=500, height=400)
 
-user_bet = screen.textinput(title="Make Your bet", prompt="Which turtle will win the race? Enter a color: ")
+user_bet = screen.textinput(title="Make Your bet", prompt="Which turtle will win the race? Enter a color: \n'purple'\n'green'\n'red'\n'blue'\n'black'\n'peru'\n'gold'")
 print(user_bet)
 
 turtles_list = [turtle1, turtle2, turtle3, turtle4, turtle5, turtle6, turtle7]
@@ -34,12 +43,6 @@ colours_list = [
     "peru",
     "gold"
 ]
-
-for turtle in range(0, len(turtles_list)):
-    turtles_list[turtle].penup()
-    turtles_list[turtle].shape("turtle")
-    turtles_list[turtle].setposition(starting_positions[turtle]["x"], starting_positions[turtle]["y"])
-    turtles_list[turtle].color(colours_list[turtle])
 
 screen.listen()
 screen.exitonclick()

@@ -25,8 +25,6 @@ turtles_list = [turtle1, turtle2, turtle3, turtle4, turtle5, turtle6, turtle7]
 
 speed_list = [0, 1, 3, 6, 9, 12]
 
-print(speed_list)
-
 starting_positions = [
     {"x": -230, "y": -150},
     {"x": -230, "y": -100},
@@ -52,7 +50,6 @@ race_is_on = True
 set_starting_positions()
 
 user_bet = screen.textinput(title="Make Your bet", prompt="Which turtle will win the race? Enter a color: \n'gold'\n'peru'\n'black'\n'blue'\n'red'\n'green'\n'purple'").lower()
-print(user_bet)
 
 while race_is_on:
     for turtle in range(0, len(turtles_list)):

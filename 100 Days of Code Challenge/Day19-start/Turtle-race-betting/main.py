@@ -26,6 +26,10 @@ print(user_bet)
 
 turtles_list = [turtle1, turtle2, turtle3, turtle4, turtle5, turtle6, turtle7]
 
+speed_list = [0, 0, 2, 2, 4, 4, 6, 8, 10]
+
+print(speed_list)
+
 starting_positions = [
     {"x": -230, "y": -150},
     {"x": -230, "y": -100},
@@ -52,14 +56,14 @@ set_starting_positions()
 
 while race_is_on:
     for turtle in range(0, len(turtles_list)):
-        if turtles_list[turtle].xcor() == 230:
+        if turtles_list[turtle].xcor() >= 230:
             race_is_on = False
             if user_bet == colours_list[turtle]:
                 print(f"The winner was {colours_list[turtle]}.\nYou bet {user_bet}.\nYou won!")
             else:
                 print(f"The winner was {colours_list[turtle]}.\nYou bet {user_bet}.\nYou lost!")
         else:
-            choice(turtles_list).forward(5)
+            choice(turtles_list).forward(choice(speed_list))
 
 
 screen.listen()

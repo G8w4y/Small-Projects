@@ -3,7 +3,7 @@ from random import choice
 
 
 def set_starting_positions():
-    """Sets the starting position of each turtle in the turtles_list."""
+    """Sets shape and the starting position of each turtle in the turtles_list."""
     for turtle in range(0, len(turtles_list)):
         turtles_list[turtle].penup()
         turtles_list[turtle].shape("turtle")

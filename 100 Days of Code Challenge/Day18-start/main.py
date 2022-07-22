@@ -69,20 +69,21 @@ def spirograph(number_of_circles):
 #     spirograph(30)
 
 def pace():
-    for paces in range(15):
+    for paces in range(25):
         tim.pencolor(randint(0, 255), randint(0, 255), randint(0, 255))
         tim.pendown()
         tim.forward(1)
         tim.penup()
-        tim.forward(40)
+        tim.forward(25)
 
 
-tim.pensize(10)
+tim.pensize(18)
 # y_list = []
-y_list = list(range(-200, 400, 50))
+y_list = list(range(-200, 400, 25))
 
-print(y_list)
+#print(y_list)
 
+tim.hideturtle()
 tim.penup()
 tim.setx(-300)
 tim.sety(-200)
@@ -100,7 +101,9 @@ for element in range(0, len(y_list) - 1):
 
 # for i in range(3, 20):
 #     shape(i)
+
+
 window = Screen()
 window.screensize(500, 400)
-print(window.screensize())
+#print(window.screensize())
 window.exitonclick()

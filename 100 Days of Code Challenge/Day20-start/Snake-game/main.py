@@ -1,4 +1,3 @@
-from ast import While
 from turtle import Turtle, Screen
 import time
 
@@ -12,7 +11,7 @@ snake_head1 = Turtle()
 snake_head2 = Turtle()
 snake_head3 = Turtle()
 
-#snake_head_list = [snake_head1, snake_head2, snake_head3]
+# snake_head_list = [snake_head1, snake_head2, snake_head3]
 
 snake_starting_positions_list = [(0, 0), (-20, 0), (-40, 0)]
 
@@ -21,6 +20,7 @@ positions_list = []
 snakes_list = []
 
 snake_heading = []
+
 
 def set_snake_head_starting_position():
     for position in range(0, len(snake_starting_positions_list)):
@@ -34,6 +34,7 @@ def set_snake_head_starting_position():
     for segment in range(0, len(snakes_list)):
         positions_list.append(snakes_list[segment].position())
     screen.update()
+
 
 def move_snake_forward():
     move_counter = 0

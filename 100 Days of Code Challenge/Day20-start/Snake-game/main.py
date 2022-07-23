@@ -46,9 +46,6 @@ def move_snake_forward():
     print(positions_list)
 
 
-
-
-
 def turn_left():
     snake_heading[0] += 90.0
     snakes_list[0].setheading(snake_heading[0])

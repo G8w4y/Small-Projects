@@ -36,7 +36,7 @@ class Snake():
             move_counter += 1
         for segment in range(0, len(self.snakes_list)):
             self.positions_list[segment] = self.snakes_list[segment].position()
-        print(self.positions_list)
+        #print(self.positions_list)
 
 
     def turn_left(self):

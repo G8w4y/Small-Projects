@@ -1,18 +1,20 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
-from scoreboard import Scoreboard
+from scoreboard import Scoreboard, Wall
 import time
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=610, height=610)
 screen.bgcolor("black")
 screen.title("Snake game")
 screen.tracer(0)
 
+wall = Wall()
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
+
 
 # snake_head1 = Turtle()
 # snake_head2 = Turtle()
@@ -80,6 +82,13 @@ while game_is_on:
         print("Nom nom nom")
         food.reset_food_placement()
         scoreboard.increase_score()
+
+    # Detect collission with walls
+    if snake.snakes_list[0].distance(wall.walls) < 5:
+        print("You DEAD!")
+        print(scoreboard.score)
+        break
+        #screen.bye()
 
     screen.listen()
     screen.onkeypress(fun=snake.turn_left, key="a")

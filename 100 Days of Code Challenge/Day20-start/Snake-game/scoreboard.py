@@ -20,6 +20,11 @@ class Scoreboard(Turtle):
         self.write(f"SCORE: {self.score}", move=False, align="center", font=("Arial", 20, "normal"))
 
 
+    def game_over(self):
+        self.goto(0, 0)
+        self.write(f"GAME OVER", move=False, align="center", font=("Arial", 34, "normal"))
+
+
 class Wall(Turtle):
 
     def __init__(self) -> None:
@@ -49,10 +54,10 @@ class Wall(Turtle):
             self.lesser_lower_coordinates_list.append(-303)
         
         
-        #print(self.coordinate_range_list)
-        #print(self.upper_coordinates_list)
-        #print(self.lower_coordinates_list)
-        # Create the coordinates for the top side of screen
+        print(self.coordinate_range_list)
+        print(self.upper_coordinates_list)
+        print(self.lower_coordinates_list)
+        # #Create the coordinates for the top side of screen
         # for coor in self.xcoordinates_list:
         #     self.wall_coordinates_list.append((self.xcoordinates_list[coor], 280))
         # # Create the coordinates for the bottom side of screen
@@ -122,7 +127,9 @@ class Wall(Turtle):
         #     print(self.pos())
 
 
-        #print(self.wall_coordinates_list[0][1])
+        # print(self.wall_coordinates_list[0][1])
+        # print(self.walls.pos())
+        # print(len(self.walls))
 
 #wall = Wall()
 

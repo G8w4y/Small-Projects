@@ -28,6 +28,20 @@ class Snake():
         self.snake_heading.append(self.snakes_list[0].heading())
 
 
+    def extend_snake(self):
+        new_segment = Turtle()
+        new_segment.shape("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.speed("fastest")
+        print(new_segment.position())# Test
+        new_segment.setposition(self.positions_list[-1])
+        print(new_segment.position())# Test
+        self.snakes_list.append(new_segment)
+        self.positions_list.append(self.snakes_list[len(self.snakes_list) - 1].position())
+        print(new_segment.position())# Test
+
+
     def move_snake_forward(self):
         move_counter = 0
         self.snakes_list[0].forward(MOVE_DISTANCE)

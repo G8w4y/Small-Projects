@@ -38,20 +38,20 @@ class Wall(Turtle):
         self.lower_coordinates_list = []
         self.wall_coordinates_list = []
         self.walls = []
-        for coor in range(-300, 301, 10):
+        for coor in range(-300, 301, 5):
             self.coordinate_range_list.append(coor)
-        for coor in range(-300, 301, 10):
-            self.upper_coordinates_list.append(310)
-        for coor in range(-300, 301, 10):
-            self.lower_coordinates_list.append(-310)
+        for coor in range(-300, 301, 5):
+            self.upper_coordinates_list.append(300)# Set this to 310 if you want it too look nicer
+        for coor in range(-300, 301, 5):
+            self.lower_coordinates_list.append(-300)# Set this to 310 if you want it too look nicer
         
         # Create the lesser lists
-        for coor in range(-300, 301, 10):
+        for coor in range(-300, 301, 5):
             self.lesser_coordinate_range_list.append(coor)
-        for coor in range(-300, 301, 10):
-            self.lesser_upper_coordinates_list.append(303)
-        for coor in range(-300, 301, 10):
-            self.lesser_lower_coordinates_list.append(-303)
+        for coor in range(-300, 301, 5):
+            self.lesser_upper_coordinates_list.append(300)# Set this to 303 if you want it too look nicer
+        for coor in range(-300, 301, 5):
+            self.lesser_lower_coordinates_list.append(-300)# Set this to 303 if you want it too look nicer
         
         
         print(self.coordinate_range_list)
@@ -77,6 +77,7 @@ class Wall(Turtle):
             new_wall = Turtle()
             new_wall.penup()
             new_wall.shape("square")
+            new_wall.shapesize(stretch_len=0.1, stretch_wid=0.1)
             new_wall.color("grey")
             new_wall.speed("fastest")
             new_wall.goto(x, y)
@@ -87,6 +88,7 @@ class Wall(Turtle):
             new_wall = Turtle()
             new_wall.penup()
             new_wall.shape("square")
+            new_wall.shapesize(stretch_len=0.1, stretch_wid=0.1)
             new_wall.color("grey")
             new_wall.speed("fastest")
             new_wall.goto(x, y)
@@ -97,6 +99,7 @@ class Wall(Turtle):
             new_wall = Turtle()
             new_wall.penup()
             new_wall.shape("square")
+            new_wall.shapesize(stretch_len=0.1, stretch_wid=0.1)
             new_wall.color("grey")
             new_wall.speed("fastest")
             new_wall.goto(x, y)
@@ -107,6 +110,7 @@ class Wall(Turtle):
             new_wall = Turtle()
             new_wall.penup()
             new_wall.shape("square")
+            new_wall.shapesize(stretch_len=0.1, stretch_wid=0.1)
             new_wall.color("grey")
             new_wall.speed("fastest")
             new_wall.goto(x, y)

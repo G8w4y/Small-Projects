@@ -6,7 +6,7 @@ import time
 
 screen = Screen()
 screen.setup(width=600, height=600)
-screen.setworldcoordinates(-305, -305, 305, 305)
+screen.setworldcoordinates(llx= -290,lly= -300, urx= 302, ury=290)
 screen.bgcolor("black")
 screen.title("Snake game")
 screen.tracer(0)
@@ -46,11 +46,7 @@ def game():
             scoreboard.game_over()
             game_is_on = False
             break
-        # if snake.snakes_list[0].distance(wall.walls) < 10:
-        #     print("You DEAD!")
-        #     print(scoreboard.score)
-        #     break
-        #     #screen.bye()
+
 
         screen.listen()
         screen.onkeypress(fun=snake.turn_left, key="a")

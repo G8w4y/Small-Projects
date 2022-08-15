@@ -35,7 +35,7 @@ def game():
         
         # Detect collision with tail
         for segment in range(1, len(snake.snakes_list)):
-            if snake.snakes_list[0].distance(snake.snakes_list[segment]) < 15:
+            if snake.snakes_list[0].distance(snake.snakes_list[segment]) < 10:
                 scoreboard.game_over()
                 game_is_on = False
                 break

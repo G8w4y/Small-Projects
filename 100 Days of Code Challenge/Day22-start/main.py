@@ -26,6 +26,9 @@ def game():
     while game_is_on:
         screen.update()
         time.sleep(0.13)
+        paddles.move_paddle_one_turn_on_toggle_or_wall()
+        print(paddles.paddle_one_list[0].pos())
+        print(paddles.paddle_one_list[0].ycor() >= 300)
 
 
 

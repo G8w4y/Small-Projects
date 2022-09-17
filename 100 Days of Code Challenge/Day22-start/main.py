@@ -27,6 +27,7 @@ def game():
         screen.update()
         time.sleep(0.13)
         paddles.move_paddle_one_turn_on_toggle_or_wall()
+        paddles.move_paddle_two_turn_on_toggle_or_wall()
         print(paddles.paddle_one_list[0].pos())
         print(paddles.paddle_one_list[0].ycor() >= 300)
 
@@ -36,11 +37,13 @@ def game():
 
         screen.listen()
         # Listen for paddle 1 movement
-        screen.onkeypress(fun=paddles.move_paddle_one_up, key="w")
-        screen.onkeypress(fun=paddles.move_paddle_one_down, key="s")
+        screen.onkeypress(fun=paddles.toggle_paddle_one, key="space")
+        # screen.onkeypress(fun=paddles.move_paddle_one_up, key="w")
+        # screen.onkeypress(fun=paddles.move_paddle_one_down, key="s")
         # Listen for paddle 2 movement
-        screen.onkeypress(fun=paddles.move_paddle_two_up, key="Up")
-        screen.onkeypress(fun=paddles.move_paddle_two_down, key="Down")
+        screen.onkeypress(fun=paddles.toggle_paddle_two, key="0")
+        #screen.onkeypress(fun=paddles.move_paddle_two_up, key="Up")
+        #screen.onkeypress(fun=paddles.move_paddle_two_down, key="Down")
 
 
 game()

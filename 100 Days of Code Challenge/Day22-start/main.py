@@ -1,6 +1,7 @@
 # Create the screen
 from turtle import Screen, Turtle
 from paddle import Paddles
+from ball import Ball
 import time
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.tracer(0)
 
 # Create and move the paddle
 paddles = Paddles()
+ball = Ball()
 
 
 # Create another paddle
@@ -28,12 +30,20 @@ def game():
         time.sleep(0.13)
         paddles.move_paddle_one_turn_on_toggle_or_wall()
         paddles.move_paddle_two_turn_on_toggle_or_wall()
+        ball.move_ball_forward()
+        ball.ball_wall_bounce()
         print(paddles.paddle_one_list[0].pos())
         print(paddles.paddle_one_list[0].ycor() >= 300)
 
+        #Detect collision with paddle one and revert direction
+        for paddle in range(len(paddles.paddle_one_list)):
+            if paddles.paddle_one_list[paddle].distance(ball) < 20:
+                ball.setheading(ball.heading() - 180)
 
-
-    
+        #Detect collission with paddle two and revert direction
+        for paddle in range(len(paddles.paddle_two_list)):
+            if paddles.paddle_two_list[paddle].distance(ball) < 20:
+                ball.setheading(ball.heading() + 180)
 
         screen.listen()
         # Listen for paddle 1 movement

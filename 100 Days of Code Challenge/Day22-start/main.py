@@ -1,5 +1,7 @@
 # Create the screen
 from turtle import Screen, Turtle
+
+from scoreboard import LeftScoreboard, RightScoreboard, CenterLine
 from paddle import Paddles
 from ball import Ball
 import time
@@ -14,6 +16,9 @@ screen.tracer(0)
 # Create and move the paddle
 paddles = Paddles()
 ball = Ball()
+left_scoreboard = LeftScoreboard()
+right_scoreboard = RightScoreboard()
+center_line = CenterLine()
 
 
 # Create another paddle
@@ -27,13 +32,14 @@ def game():
     game_is_on = True
     while game_is_on:
         screen.update()
-        time.sleep(0.13)
+        
         paddles.move_paddle_one_turn_on_toggle_or_wall()
         paddles.move_paddle_two_turn_on_toggle_or_wall()
         ball.move_ball_forward()
+        time.sleep(0.13)
         ball.ball_wall_bounce()
-        print(paddles.paddle_one_list[0].pos())
-        print(paddles.paddle_one_list[0].ycor() >= 300)
+        #print(paddles.paddle_one_list[0].pos())
+        #print(paddles.paddle_one_list[0].ycor() >= 300)
 
         #Detect collision with paddle one and revert direction
         for paddle in range(len(paddles.paddle_one_list)):

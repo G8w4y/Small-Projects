@@ -7,8 +7,8 @@ from ball import Ball
 import time
 
 screen = Screen()
-screen.setup(width=600, height=600)
-screen.setworldcoordinates(llx= -290,lly= -300, urx= 302, ury=290)
+screen.setup(width=800, height=600)
+#screen.setworldcoordinates(llx= -390,lly= -300, urx= 302, ury=290)
 screen.bgcolor("black")
 screen.title("pong")
 screen.tracer(0)
@@ -31,12 +31,11 @@ center_line = CenterLine()
 def game():
     game_is_on = True
     while game_is_on:
+        time.sleep(0.10)
         screen.update()
-        
         paddles.move_paddle_one_turn_on_toggle_or_wall()
         paddles.move_paddle_two_turn_on_toggle_or_wall()
         ball.move_ball_forward()
-        time.sleep(0.13)
         ball.ball_wall_bounce()
         #print(paddles.paddle_one_list[0].pos())
         #print(paddles.paddle_one_list[0].ycor() >= 300)

@@ -36,12 +36,12 @@ class Ball(Turtle):
 
     def ball_wall_bounce(self):
         if self.ycor() >= 290 or self.ycor() <= -290:
-            if self.heading in range(0, 91):
+            if self.heading() in range(0, 91):
                 self.setheading(self.heading() + 270)
-            elif self.heading in range(91, 181):
+            elif self.heading() in range(91, 181):
                 self.setheading(self.heading() + 90)
-            elif self.heading in range(181, 271):
+            elif self.heading() in range(181, 271):
                 self.setheading(self.heading() - 90)
-            elif self.heading in range(271, 1):
+            elif self.heading() in range(271, 361):
                 self.setheading(self.heading() + 90)
         print(self.heading())

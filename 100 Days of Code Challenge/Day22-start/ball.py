@@ -1,4 +1,4 @@
-from turtle import Turtle, goto
+from turtle import Turtle
 import random
 
 BALL_LENGTH = 0.5

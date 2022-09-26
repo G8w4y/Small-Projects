@@ -1,4 +1,4 @@
-from turtle import Turtle
+from turtle import Turtle, goto
 import random
 
 BALL_LENGTH = 0.5
@@ -23,25 +23,48 @@ class Ball(Turtle):
         self.penup()
         self.shapesize(stretch_len=BALL_LENGTH, stretch_wid=BALL_WIDTH)
         self.speed("fastest")
+        self.x_move = 10
+        self.y_move = 10
         self.set_random_heading()
       
     def set_random_heading(self):
         self.setheading(random.choice(HEADING_LIST))
     
     def move_ball_forward(self):
-        self.forward(MOVE_DISTANCE)
+        if self.heading() in range(1, 91):
+            new_x = self.xcor() + self.x_move
+            new_y = self.ycor() + self.y_move
+            self.goto(new_x, new_y)
+        elif self.heading() in range(91, 181):
+            new_x = self.xcor() - self.x_move
+            new_y = self.ycor() + self.y_move
+            self.goto(new_x, new_y)
+        elif self.heading() in range(181, 271):
+            new_x = self.xcor() - self.x_move
+            new_y = self.ycor() - self.y_move
+            self.goto(new_x, new_y)
+        elif self.heading() in range(271, 361):
+            new_x = self.xcor() + self.x_move
+            new_y = self.ycor() - self.y_move
+            self.goto(new_x, new_y)
 
     def reset_ball(self):
         self.goto(x=0, y=0)
+        self.set_random_heading()
+
+    # def ball_wall_bounce(self):
+    #     if self.ycor() >= 290 or self.ycor() <= -290:
+    #         if self.heading() in range(0, 91):
+    #             self.setheading(self.heading() + 270)
+    #         elif self.heading() in range(91, 181):
+    #             self.setheading(self.heading() + 90)
+    #         elif self.heading() in range(181, 271):
+    #             self.setheading(self.heading() - 90)
+    #         elif self.heading() in range(271, 361):
+    #             self.setheading(self.heading() + 90)
+    #     print(self.heading())
 
     def ball_wall_bounce(self):
-        if self.ycor() >= 290 or self.ycor() <= -290:
-            if self.heading() in range(0, 91):
-                self.setheading(self.heading() + 270)
-            elif self.heading() in range(91, 181):
-                self.setheading(self.heading() + 90)
-            elif self.heading() in range(181, 271):
-                self.setheading(self.heading() - 90)
-            elif self.heading() in range(271, 361):
-                self.setheading(self.heading() + 90)
-        print(self.heading())
+        if self.ycor() > 290 or self.ycor() < -290:
+            self.y_move *= -1
+            print(self.ycor())

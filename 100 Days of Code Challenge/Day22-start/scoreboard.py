@@ -13,7 +13,6 @@ class LeftScoreboard(Turtle):
         self.score = 0
         self.write(f"{self.score}", move=False, align="center", font=("Arial", 28, "normal"))
 
-
     def increase_score(self):
         self.score += 1
         self.clear()

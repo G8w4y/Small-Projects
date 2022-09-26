@@ -43,12 +43,24 @@ def game():
         #Detect collision with paddle one and revert direction
         for paddle in range(len(paddles.paddle_one_list)):
             if paddles.paddle_one_list[paddle].distance(ball) < 20:
-                ball.setheading(ball.heading() - 180)
+                ball.x_move *= -1
 
         #Detect collission with paddle two and revert direction
         for paddle in range(len(paddles.paddle_two_list)):
             if paddles.paddle_two_list[paddle].distance(ball) < 20:
-                ball.setheading(ball.heading() + 180)
+                ball.x_move *= -1
+
+        if ball.xcor() < -400:
+            right_scoreboard.increase_score()
+            ball.reset_ball()
+        elif ball.xcor() > 400:
+            left_scoreboard.increase_score()
+            ball.reset_ball()
+
+        if left_scoreboard.score == 10:
+            game_is_on = False
+        elif right_scoreboard.score == 10:
+            game_is_on = False
 
         screen.listen()
         # Listen for paddle 1 movement
@@ -63,8 +75,15 @@ def game():
 
 game()
 keep_playing = screen.textinput(title="Wan't to play again?", prompt="Press y to continue and anything else to quit.").lower()
-if keep_playing == "y":
+while keep_playing == "y":
+    left_scoreboard.score = 0
+    left_scoreboard.clear()
+    left_scoreboard.write(f"{left_scoreboard.score}", move=False, align="center", font=("Arial", 28, "normal"))
+    right_scoreboard.score = 0
+    right_scoreboard.clear()
+    right_scoreboard.write(f"{right_scoreboard.score}", move=False, align="center", font=("Arial", 28, "normal"))
     game()
+    keep_playing = screen.textinput(title="Wan't to play again?", prompt="Press y to continue and anything else to quit.").lower()
 
 
 screen.exitonclick()

@@ -49,6 +49,8 @@ class Ball(Turtle):
             self.goto(new_x, new_y)
 
     def reset_ball(self):
+        self.x_move = 10
+        self.y_move = 10
         self.goto(x=0, y=0)
         self.set_random_heading()
 

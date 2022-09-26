@@ -43,11 +43,20 @@ def game():
         #Detect collision with paddle one and revert direction
         for paddle in range(len(paddles.paddle_one_list)):
             if paddles.paddle_one_list[paddle].distance(ball) < 20:
+                if ball.x_move < 0:
+                    ball.x_move -= 1
+                else:
+                    ball.x_move +=1
+                #ball.y_move += 1
                 ball.x_move *= -1
 
         #Detect collission with paddle two and revert direction
         for paddle in range(len(paddles.paddle_two_list)):
             if paddles.paddle_two_list[paddle].distance(ball) < 20:
+                if ball.x_move < 0:
+                    ball.x_move -= 1
+                else:
+                    ball.x_move +=1
                 ball.x_move *= -1
 
         if ball.xcor() < -400:

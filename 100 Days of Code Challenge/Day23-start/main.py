@@ -36,7 +36,7 @@ while keep_playing:
 
     for element in car.cars_list:
         #if car.cars_list[car.cars_list.index(element)].distance(player) <= 15:
-        if math.sqrt((player.ycor() - car.cars_list[car.cars_list.index(element)].ycor())**2) <= 20 and math.sqrt((((player.xcor()) - (car.cars_list[car.cars_list.index(element)].xcor()))**2)) <= 10:
+        if math.sqrt((player.ycor() - car.cars_list[car.cars_list.index(element)].ycor())**2) <= 19 and math.sqrt((((player.xcor()) - (car.cars_list[car.cars_list.index(element)].xcor()))**2)) <= 10:
             keep_playing = False
             pop_up = Turtle()
             pop_up.hideturtle()

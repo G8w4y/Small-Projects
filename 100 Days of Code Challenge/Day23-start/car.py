@@ -9,8 +9,10 @@ COLORS_LIST = [
 ]
 
 # Create possible y-range list
-Y_RANGE = list(range(-290, 291, 20))
-print(Y_RANGE)
+Y_RANGE = list(range(-270, 291, 20))
+#print(Y_RANGE)
+
+LEVEL = 0
 
 CAR_LENGTH = 1.5
 CAR_WIDTH = 1
@@ -34,28 +36,28 @@ class Car(Turtle):
         #     self.cars_list.append(new_segment)
 
     def spawn_new_car(self):
-        if len(self.cars_list) < 20:
+        #if len(self.cars_list) < 20:
             #time.sleep(0.2)
-            random_y = choice(Y_RANGE)
-            #print(random_y)
-            position = (300, random_y)
-            new_car = Turtle()
-            new_car.penup()
-            new_car.goto(position)
-            new_car.shape("square")
-            new_car.shapesize(stretch_len=CAR_LENGTH, stretch_wid=CAR_WIDTH)
-            new_car.color(choice(COLORS_LIST))
-            new_car.setheading(180)
-            self.cars_list.append(new_car)
+        random_y = choice(Y_RANGE)
+        #print(random_y)
+        position = (300, random_y)
+        new_car = Turtle()
+        new_car.penup()
+        new_car.goto(position)
+        new_car.shape("square")
+        new_car.shapesize(stretch_len=CAR_LENGTH, stretch_wid=CAR_WIDTH)
+        new_car.color(choice(COLORS_LIST))
+        new_car.setheading(180)
+        self.cars_list.append(new_car)
 
     def move_cars(self):
         for car in self.cars_list:
-            move_distance = choice(list(range(5, 35, 5)))
+            move_distance = 5
             car.forward(move_distance)
 
     def delete_car(self):
-        if len(self.cars_list) > 10:
-            for car in self.cars_list:
-                if car.xcor() < -280:
-                    del self.cars_list[self.cars_list.index(car)]
-                    print(len(self.cars_list))
+        #if len(self.cars_list) > 10:
+        for car in self.cars_list:
+            if car.xcor() < -300:
+                del self.cars_list[self.cars_list.index(car)]
+                #print(len(self.cars_list))

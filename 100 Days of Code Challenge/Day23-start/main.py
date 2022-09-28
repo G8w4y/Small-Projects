@@ -13,15 +13,31 @@ screen.bgcolor("white")
 screen.title("Turtle Crossing")
 screen.tracer(0)
 
+level_screen = Turtle()
+level_screen.hideturtle()
+level_screen.penup()
+level_screen.goto(-250, 260)
 player = Player()
 car = Car()
 
+level = 1
+car_counter = 0
+starting_time = 0.1
+difficulty = 0.8
+modulo_counter = 5
+
 keep_playing = True
 while keep_playing:
-    time.sleep(0.2)
+    real_time = starting_time*(difficulty)**level
+    time.sleep(real_time)
+    print(real_time)
+    level_screen.clear()
+    level_screen.write(f"Level: {level}", move=False, align="center", font=("Arial", 20, "normal"))
     screen.update()
-    car.spawn_new_car()
+    if car_counter % 5 == 0:
+        car.spawn_new_car()
     car.move_cars()
+    car_counter += 1
     car.delete_car()
 
 
@@ -29,13 +45,16 @@ while keep_playing:
     screen.onkeypress(fun=player.move_forward, key="w")
 
     if player.ycor() >= 300:
-        keep_playing = False
         pop_up = Turtle()
         pop_up.hideturtle()
-        pop_up.write("YOU SURVIVED! YOU WON!", move=False, align="center", font=("Arial", 20, "normal"))
+        pop_up.write("YOU SURVIVED! increasing difficulty!", move=False, align="center", font=("Arial", 20, "normal"))
+        time.sleep(2)
+        level += 1
+        pop_up.clear()
+        player.goto(0, -290)
 
     for element in car.cars_list:
-        #if car.cars_list[car.cars_list.index(element)].distance(player) <= 15:
+        # if car.cars_list[car.cars_list.index(element)].distance(player) <= 15:
         if math.sqrt((player.ycor() - car.cars_list[car.cars_list.index(element)].ycor())**2) <= 19 and math.sqrt((((player.xcor()) - (car.cars_list[car.cars_list.index(element)].xcor()))**2)) <= 10:
             keep_playing = False
             pop_up = Turtle()

@@ -21,6 +21,7 @@ class Snake():
             new_segment.color("white")
             new_segment.penup()
             new_segment.speed("fastest")
+            new_segment.setheading(0)
             new_segment.setposition(SNAKE_STARTING_POSITIONS_LIST[position])
             self.snakes_list.append(new_segment)
         for segment in range(0, len(self.snakes_list)):
@@ -40,6 +41,13 @@ class Snake():
         self.snakes_list.append(new_segment)
         self.positions_list.append(self.snakes_list[len(self.snakes_list) - 1].position())
         print(new_segment.position())# Test
+
+    def reset(self):
+        for segment in self.snakes_list:
+            segment.hideturtle()
+            segment.goto(1000, 1000)
+        self.snakes_list.clear()
+        self.set_snake_head_starting_position()
 
 
     def move_snake_forward(self):

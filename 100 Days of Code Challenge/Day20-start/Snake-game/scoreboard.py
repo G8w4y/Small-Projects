@@ -11,18 +11,30 @@ class Scoreboard(Turtle):
         self.goto(x=0, y=270)
 
         self.score = 0
-        self.write(f"SCORE: {self.score}", move=False, align="center", font=("Arial", 20, "normal"))
-
+        with open(r"C:\Scripts\Vas\100 Days of Code Challenge\Day20-start\Snake-game\data.txt", mode="r") as high_score:
+            self.high_score = int(high_score.read())
+        self.write(f"SCORE: {self.score} High Score: {self.high_score}", move=False, align="center", font=("Arial", 20, "normal"))
 
     def increase_score(self):
         self.score += 1
+        self.update_scoreboard()
+
+    def update_scoreboard(self):
         self.clear()
-        self.write(f"SCORE: {self.score}", move=False, align="center", font=("Arial", 20, "normal"))
+        self.write(f"SCORE: {self.score} High Score: {self.high_score}", move=False, align="center", font=("Arial", 20, "normal"))
+
+    def reset(self):
+        if int(self.score) > int(self.high_score):
+            with open(r"C:\Scripts\Vas\100 Days of Code Challenge\Day20-start\Snake-game\data.txt", mode="w") as score:
+                score.write(f"{self.score}")
+            #self.high_score = self.score
+        self.score = 0
+        self.update_scoreboard()
 
 
-    def game_over(self):
-        self.goto(0, 100)
-        self.write(f"GAME OVER", move=False, align="center", font=("Arial", 34, "normal"))
+    # def game_over(self):
+    #     self.goto(0, 100)
+    #     self.write(f"GAME OVER", move=False, align="center", font=("Arial", 34, "normal"))
 
 
 class Wall(Turtle):

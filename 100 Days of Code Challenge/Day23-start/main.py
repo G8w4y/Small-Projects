@@ -34,7 +34,9 @@ while keep_playing:
     level_screen.clear()
     level_screen.write(f"Level: {level}", move=False, align="center", font=("Arial", 20, "normal"))
     screen.update()
+    # Create new car if there has been 5 updates of the screen
     if car_counter % 5 == 0:
+        #could also solve this by chance. Like rolling a dice
         car.spawn_new_car()
     car.move_cars()
     car_counter += 1
@@ -44,6 +46,7 @@ while keep_playing:
     screen.listen()
     screen.onkeypress(fun=player.move_forward, key="w")
 
+    # Check if turtle survived
     if player.ycor() >= 300:
         pop_up = Turtle()
         pop_up.hideturtle()
@@ -53,6 +56,7 @@ while keep_playing:
         pop_up.clear()
         player.goto(0, -290)
 
+    # Detect collission between turtle and car
     for element in car.cars_list:
         # if car.cars_list[car.cars_list.index(element)].distance(player) <= 15:
         if math.sqrt((player.ycor() - car.cars_list[car.cars_list.index(element)].ycor())**2) <= 19 and math.sqrt((((player.xcor()) - (car.cars_list[car.cars_list.index(element)].xcor()))**2)) <= 10:

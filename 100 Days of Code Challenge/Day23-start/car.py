@@ -14,7 +14,7 @@ Y_RANGE = list(range(-270, 291, 20))
 
 LEVEL = 0
 
-CAR_LENGTH = 1.5
+CAR_LENGTH = 2 #Was 1.5
 CAR_WIDTH = 1
 
 
@@ -58,6 +58,6 @@ class Car(Turtle):
     def delete_car(self):
         #if len(self.cars_list) > 10:
         for car in self.cars_list:
-            if car.xcor() < -300:
+            if car.xcor() < -310:
                 del self.cars_list[self.cars_list.index(car)]
                 #print(len(self.cars_list))
